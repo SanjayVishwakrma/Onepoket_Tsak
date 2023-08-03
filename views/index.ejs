@@ -1,0 +1,43 @@
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Hello, World!</h1>
+
+    <h4>inputArray is = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</h4>
+
+    <h2 id="sumValue"></h2>
+
+    <script>
+      function sumArray(num) {
+        if (!Array.isArray(num)) {
+          throw new Error('Input is not an array of integers.');
+        }
+        let sumOfArrayValues = 0;
+        for (let i = 0; i < num.length; i++) {
+          if (!Number.isInteger(num[i])) {
+            throw new Error('Array contains non-integer values.');
+          }
+          sumOfArrayValues += num[i];
+        }
+        return sumOfArrayValues;
+      }
+
+      const inputArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+      try {
+        const result = sumArray(inputArray);
+        console.log('Sum:', result);
+
+        // Update the content of the h2 element with the sum value
+        document.getElementById('sumValue').textContent = `Sum: ${result}`;
+      } catch (error) {
+        console.error('Error:', error.message);
+      }
+    </script>
+  </body>
+</html>
